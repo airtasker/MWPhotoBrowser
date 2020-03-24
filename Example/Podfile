@@ -1,14 +1,19 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
+platform :ios, '10.0'
+use_frameworks!
+
 target 'MWPhotoBrowser_Example' do
   pod "MWPhotoBrowser", :path => "../"
+
+  target 'MWPhotoBrowser_Tests' do
+    inherit! :search_paths
+
+    pod 'Specta'
+    pod 'Expecta'
+    pod 'FBSnapshotTestCase'
+    pod 'Expecta+Snapshots'
+  end
 end
 
-target 'MWPhotoBrowser_Tests' do
-  pod "MWPhotoBrowser", :path => "../"
 
-  pod 'Specta'
-  pod 'Expecta'
-  pod 'FBSnapshotTestCase'
-  pod 'Expecta+Snapshots'
-end
